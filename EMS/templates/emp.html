@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>EMS | Employee</title>
+</head>
+<body>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Employee id</th>
+            <th scope="col">Employee Name</th>
+            <th scope="col">Employee Email</th>
+            <th scope="col">Employee Address</th>
+            <th scope="col">Hiring Date</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Reporting_Manager</th>
+            <th scope="col">Employee Designation</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for x in data %}
+          <tr> 
+            <td>{{x.emp_id}}</td>
+            <td>{{x.emp_name}}</td>
+            <td>{{x.emp_email}}</td>
+            <td>{{x.emp_address}}</td>
+            <td>{{x.hiring_date}}</td>
+            <td>{{x.salary}}</td>
+            <td>{{x.designation}}</td>
+            <td>{{x.reporting_manager}}</td>
+            <td><a href="/editemp/{{x.emp_id}}" class="btn btn-light border border-dark">Edit</a></td>
+            <td><a href="/delemp/{{x.emp_id}}" class="btn btn-danger">Delete</a></td> 
+          </tr>
+        {% endfor %}
+        <tr>
+          <form method="post">
+            {% csrf_token %}  
+              <td>{{ form.emp_id }}</td>
+              <td>{{ form.emp_name }}</td>
+              <td>{{ form.emp_email }}</td>
+              <td>{{ form.emp_address }}</td>
+              <td>{{ form.hiring_date }}</td>
+              <td>{{ form.salary }}</td>
+              <td>{{ form.designation }}</td>
+              <td>{{ form.reporting_manager }}</td>
+              <td colspan="2">
+                <button class="btn btn-primary" type="submit">Add Employee</button>
+              </td>
+          </form>
+        </tr>
+        </tbody>
+    </table>
+    
+    <div class="row mx-auto" style="width:400px;">
+      <div class="col"><a href="/home" class="btn btn-primary">Home</a></div>
+      <div class="col"><a href="/dept" class="btn btn-primary">Departments</a></div>
+      <div class="col"><a href="/salary" class="btn btn-primary">Salary</a></div>
+        
+    </div>
+</body>
+</html>

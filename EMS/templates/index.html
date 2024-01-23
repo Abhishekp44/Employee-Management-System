@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <title>EMS</title>
+    <style>
+        #container{
+            margin-top: 300px;
+            width: 500px;
+            margin-left: 500px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="row shadow border py-3 text-center rounded" id="container">
+        <div class="row mb-3">
+            <h2>Emplyee Management System</h2>
+        </div>
+        <div class="row mb-3 mx-auto"> 
+            <a href="/emp" class="btn btn-primary">Employee</a>   
+        </div>
+        <div class="row mb-3 mx-auto">
+            <a href="/dept" class="btn btn-primary">Department</a>
+        </div>
+        <div class="row mb-3 mx-auto">
+            <a href="/salary" class="btn btn-primary">Salary</a>
+        </div>
+        <div class="row mb-3 mx-auto">
+            <a href="/salaryrep" class="btn btn-primary">Salary Report</a>
+        </div>
+    </div>
+</body>
+</html> 
